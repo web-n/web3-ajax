@@ -12,9 +12,7 @@
     nightDayHandler(this);
   ">
   <ol id="nav">
-    <li><a href="#!html" onclick="fetchPage('html')">html</a></li>
-    <li><a href="#!css" onclick="fetchPage('css')">css</a></li>
-    <li><a href="#!javascript" onclick="fetchPage('javascript')">javascript</a></li>
+
   </ol>
   <article>
 
@@ -32,6 +30,11 @@
   } else {
     fetchPage('welcome');
   }
+  fetch('list').then(function(response){
+    response.text().then(function(text){
+      document.querySelector('#nav').innerHTML = text;
+    })
+  });
   </script>
 </body>
 </html>
